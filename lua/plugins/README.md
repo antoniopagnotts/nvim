@@ -1,20 +1,17 @@
+## 🎨 `catpuccin.lua`: Theme Setup
+
+This file configures the [Catppuccin](https://github.com/catppuccin/nvim) color scheme for Neovim using `lazy.nvim`.
+
+### ⚙️ Explanation
+
+- **Repository**: `catppuccin/nvim` - the Catppuccin theme plugin.
+- **lazy = false**: Load the theme immediately on startup (no lazy loading).
+- **name = "catppuccin"**: Assigns a friendly i
+
+
 ## 🔀 `gitsigns.lua`: Git Integration
 
 This file sets up Git integration in Neovim using two powerful plugins:
-
-### 📦 Plugins
-
-```lua
-{
-  "tpope/vim-fugitive"
-},
-{
-  "lewis6991/gitsigns.nvim",
-  config = function()
-    require("gitsigns").setup()
-  end,
-}
-```
 
 ---
 
