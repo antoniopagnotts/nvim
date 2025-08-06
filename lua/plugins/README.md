@@ -1,39 +1,57 @@
-# 🔀 gitsigns.lua: Git Integration
-This file provides Git integration features inside Neovim using two plugins:
+## 🔀 `gitsigns.lua`: Git Integration
 
-## 🔧 Features
-### 🧙‍♂️ vim-fugitive
-Powerful Git wrapper for Neovim.
+This file sets up Git integration in Neovim using two powerful plugins:
 
-Useful commands:
+### 📦 Plugins
 
-- **:Git**: Run Git commands like :Git status, :Git commit, :Git push, etc.
+```lua
+{
+  "tpope/vim-fugitive"
+},
+{
+  "lewis6991/gitsigns.nvim",
+  config = function()
+    require("gitsigns").setup()
+  end,
+}
+```
 
-- **:Gdiffsplit**: View diff in split window.
+---
 
-- **:Gblame**: Git blame in vertical split.
+### 🧙‍♂️ `vim-fugitive`
 
-- **:Glog**: View Git commit log.
+[`vim-fugitive`](https://github.com/tpope/vim-fugitive) is a Git wrapper for Neovim, enabling you to run Git commands directly within the editor.
 
-### 🔍 gitsigns.nvim
-Adds Git change indicators (signs) in the sign column:
+#### 💡 Common Commands
 
-- \+ → added lines
+- `:Git` — Run Git commands (`:Git status`, `:Git commit`, `:Git push`, etc.)
+- `:Gdiffsplit` — Show Git diff in a vertical split.
+- `:Gblame` — Display `git blame` output for the current file.
+- `:Glog` — View Git log (commit history).
 
-- \~ → modified lines
+---
 
-- \- → removed lines
+### 🔍 `gitsigns.nvim`
 
-Lightweight and fast thanks to native Lua implementation.
+[`gitsigns.nvim`](https://github.com/lewis6991/gitsigns.nvim) provides inline Git indicators and utilities using native Lua. It’s fast, customizable, and works well with modern Neovim setups.
 
-Also supports:
+#### 🚀 Features
 
-- Inline Git blame
+- 📌 Adds Git signs in the **sign column**:
+  - `+` → Added lines
+  - `~` → Modified lines
+  - `-` → Deleted lines
+- 🔁 Hunk staging/reset from within Neovim
+- 👀 Preview diffs in a floating window
+- 🧾 Inline Git blame for each line
+- ⚡ Live updates with no noticeable performance hit
 
-- Stage/reset hunks or buffer
+#### ⚙️ Setup
 
-- Preview diffs in a floating window
+The plugin is initialized with the default config:
 
-- Live line blame
+```lua
+require("gitsigns").setup()
+```
 
-This file loads gitsigns.nvim with its default settings. You can customize it further by adding keymaps or tweaking the appearance in the setup() block.
+> You can expand this later with custom keybindings, blame format, or sign icons.
