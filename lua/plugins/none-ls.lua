@@ -2,13 +2,40 @@ return {
   "nvimtools/none-ls.nvim",
   config = function()
     local null_ls = require("null-ls")
+    local formatting = null_ls.builtins.formatting
+    local diagnostics = null_ls.builtins.diagnostics
+
     null_ls.setup({
       sources = {
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.prettier,
-        null_ls.builtins.diagnostics.erb_lint,
-        null_ls.builtins.diagnostics.rubocop,
-        null_ls.builtins.formatting.rubocop,
+	-- Lua
+        formatting.stylua,
+        
+	formatting.prettier.with({
+          filetypes = {
+	    "javascript",
+	    "typescript",
+	    "json",
+	    "yaml",
+	    "css",
+	    "html",
+	    "markdown",
+	  },
+	}),
+        
+	-- ESLint for JS/TS
+        diagnostics.eslint_d,
+        formatting.eslint_d,
+        
+	-- YAML
+	diagnostics.yamllint,
+
+	--JSON
+	diagnostics.jsonlint,
+
+	-- Go
+	formatting.gofmt,
+	formatting.goimports,
+	diagnostics.golangci_lint,
       },
     })
 
