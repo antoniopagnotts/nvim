@@ -69,4 +69,6 @@ Lets you clear search highlights **quickly** using `<leader>h`.
 This configuration improves:
 - **Indentation consistency**
 - **Pane navigation**
-- **S**
+- **Search UX**
+- **Visual clarity**
+- And sets a solid foundation for further customization.
