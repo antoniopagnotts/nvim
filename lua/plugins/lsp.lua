@@ -13,9 +13,17 @@ return {
     },
     event = { "BufReadPre", "BufNewFile" },
     opts = {
-      ensure_installed = { "gopls", "lua_ls" },
+      ensure_installed = { "gopls", "lua_ls", "ts_ls", "angularls", "html", "cssls", "jsonls" },
       automatic_enable = true,   -- enables every installed server via vim.lsp.enable()
     },
   },
   { "neovim/nvim-lspconfig", lazy = true },
+    {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = { "mason-org/mason.nvim" },
+    event = "VeryLazy",
+    opts = {
+      ensure_installed = { "prettier", "stylua" },
+    },
+  },
 }

@@ -13,6 +13,9 @@ return {
       "markdown", "markdown_inline", "regex",
     })
 
+    -- Angular templates (*.component.html) use the "angular" parser
+    vim.treesitter.language.register("angular", "htmlangular")
+
     -- Enable highlighting for any filetype that has a parser
     vim.api.nvim_create_autocmd("FileType", {
       callback = function(args)

@@ -26,3 +26,9 @@ local ok, blink = pcall(require, "blink.cmp")
 if ok then
   vim.lsp.config("*", { capabilities = blink.get_lsp_capabilities() })
 end
+-- Angular: let ts_ls handle rename, avoid duplicate rename prompts
+vim.lsp.config("angularls", {
+  on_init = function(client)
+    client.server_capabilities.renameProvider = false
+  end,
+})
