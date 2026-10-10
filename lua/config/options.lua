@@ -65,3 +65,15 @@ map("v", ">", ">gv")
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function() vim.hl.on_yank() end,
 })
+
+-- Terminal: Esc Esc returns to normal mode
+vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+
+-- Terminal buffers: no line numbers
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+    vim.opt_local.signcolumn = "no"
+  end,
+})
