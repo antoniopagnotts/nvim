@@ -1,0 +1,18 @@
+# Backup and scratch files (e.g. the copilot.lua.bak we created)
+*.bak
+*.orig
+*.rej
+*~
+
+# Vim swap and undo files, in case they land in the config dir
+*.swp
+*.swo
+*.un~
+
+# Editor and OS noise
+.DS_Store
+.idea/
+.vscode/
+
+# Local-only overrides, if you ever add a machine-specific file
+lua/config/local.lua
